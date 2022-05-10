@@ -2,7 +2,7 @@
 <html xmlns = "http://www.w3.org/1999/xhtml" xmlns:th ="http://www.thymeleaf.org">
 	<head>
 		<title>Taco Cloud</title>
-
+		<link re; ="stylesheet" th:href ="@{/styles.css}" />
 	</head>
 	<body>
 		<h1>Design your Taco!</h1>
@@ -52,8 +52,9 @@
 		</div>
 		
 		<div>
+		
 		<h3>Name your taco creation:</h3>
-		<input type ="text" th:field="*{name}"/>
+		<input type = "text" th:field="*{name}"/>
 		<br/>
 		
 		<button>Submit your taco</button>
