@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,12 +56,12 @@ public class DesignTacoController {
 		return "design";
 
 	}
-	
+
 	@ModelAttribute(name = "order")
 	public Order order() {
 		return new Order();
 	}
-	
+
 	@ModelAttribute(name = "taco")
 	public Taco taco() {
 		return new Taco();
@@ -73,7 +72,7 @@ public class DesignTacoController {
 		if (errors.hasErrors()) {
 			return "design";
 		}
-		
+
 		Taco saved = designRepo.save(design);
 		order.addDesign(saved);
 		log.info("Processing design: " + design);
