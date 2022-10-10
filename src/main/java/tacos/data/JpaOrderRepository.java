@@ -33,6 +33,7 @@ public class JpaOrderRepository implements OrderRepository {
 				
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Order save(Order theOrder) {
 		theOrder.setPlacedAt(new Date());
@@ -129,13 +130,13 @@ public class JpaOrderRepository implements OrderRepository {
 	}
 
 	@Override
-	public List<Order> findByDeliveryZip(String deliveryZip) {
+	public List<Order> findByZip(String zip) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Order> readByDeliveryZipAndPlacedAtBetween(String deliveryZip, Date startDate, Date endDate) {
+	public List<Order> readByZipAndPlacedAtBetween(String deliveryZip, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
 		return null;
 	}

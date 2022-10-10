@@ -1,4 +1,4 @@
-package tacos;
+package tacos.web;
 
 import javax.validation.Valid;
 
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import lombok.extern.slf4j.Slf4j;
+import tacos.Order;
 import tacos.data.OrderRepository;
 
 @Slf4j
@@ -25,11 +26,20 @@ public class OrderController {
 	public OrderController(OrderRepository orderRepo) {
 		this.orderRepo = orderRepo;
 	}
-
-	@GetMapping("/current")
+	
+	@GetMapping
 	public String orderForm(Model model) {
+		log.info("trying to show the order Form");
+		model.addAttribute("order", new Order());
 		return "orderForm";
 	}
+
+//	@GetMapping("/current")
+//	public String orderForm(Model model) {
+//		log.info("trying to show the order Form");
+//		model.addAttribute("order", new Order());
+//		return "orderForm";
+//	}
 	
 	@PostMapping
 	public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
