@@ -27,11 +27,13 @@ public class OrderController {
 		this.orderRepo = orderRepo;
 	}
 	
-	@GetMapping("/current")
-	public String orderForm() {
+	@GetMapping
+	public String orderForm(Model model) {
+		log.info("trying to show the order Form");
+		model.addAttribute("order", new Order());
 		return "orderForm";
 	}
-	
+
 	@PostMapping
 	public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
 		if (errors.hasErrors()) {
