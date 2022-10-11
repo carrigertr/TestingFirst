@@ -17,11 +17,11 @@ import tacos.Ingredient;
 import tacos.Taco;
 
 @Repository
-public class JpaTacoRepository implements TacoRepository {
+public class JdbcTacoRepository implements TacoRepository {
 
 	private JdbcTemplate jdbc;
 
-	public JpaTacoRepository(JdbcTemplate jdbc) {
+	public JdbcTacoRepository(JdbcTemplate jdbc) {
 		this.jdbc = jdbc;
 	}
 
@@ -54,69 +54,5 @@ public class JpaTacoRepository implements TacoRepository {
 		jdbc.update("insert into Taco_Ingredients (taco, ingredient) " + "values (?, ?", tacoId, ingredient.getId());
 	}
 
-	@Override
-	public <S extends Taco> Iterable<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public Optional<Taco> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean existsById(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Iterable<Taco> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterable<Taco> findAllById(Iterable<Long> ids) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Taco entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAllById(Iterable<? extends Long> ids) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll(Iterable<? extends Taco> entities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
 }
